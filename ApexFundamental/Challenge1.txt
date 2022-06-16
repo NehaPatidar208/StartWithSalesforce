@@ -1,0 +1,16 @@
+/*
+Challenge1 – There can be n catagories of jobs and each can have any number of post.
+Use the most relavant data type for this case
+*/
+
+
+//Solution in anonymous window
+
+List<String> type1 = new  List<String>{'post1','post2','post3'};
+List<String> type2 = new  List<String>{'postA','postB','postC'};
+List<String> type3 = new  List<String>{'postX','postY','postZ'};
+Map<String,List<String>> jobs= new Map<String,List<String>>();
+jobs.put('Type1',type1);
+jobs.put('Type2',type2);
+jobs.put('Type3',type3);
+System.debug(jobs);
