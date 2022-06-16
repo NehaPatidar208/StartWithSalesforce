@@ -1,0 +1,15 @@
+/*
+pattter 
+*
+**
+***
+****
+*/
+Integer n = 5;
+for(Integer i = 0 ; i < n ; i++){
+    String pat= '*';
+    for(Integer j = 0; j<i;j++){
+        pat += '*';
+    }
+    System.debug(pat);
+}
