@@ -1,0 +1,10 @@
+Integer i = 2, num1 = 0, num2 = 1;
+System.debug(num1);
+System.debug(num2);
+while(i<20){
+    Integer tmp = num1 + num2;		//next febonacci value
+    num1 = num2;					//store last value in second last
+    num2 = tmp;						//store next value in last
+    System.debug(num2);
+    i++;
+}
