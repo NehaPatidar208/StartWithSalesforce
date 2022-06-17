@@ -1,0 +1,25 @@
+public class DemoClass {
+    static Integer numberOfStudentInSchool = 0;
+    Integer numberOfStudentInClass = 0;
+    //parameterised constructor
+    public DemoClass(Integer numberOfStudentInClass){
+        if(numberOfStudentInClass > 0){
+            this.numberOfStudentInClass = numberOfStudentInClass;
+            numberOfStudentInSchool += numberOfStudentInClass;
+        }
+    }
+    /*
+     * method name - getStudentFromClass
+     * return type - Integer
+     */
+    public Integer getStudentFromClass(){
+        return this.numberOfStudentInClass;
+    }
+    /*
+     * method name - getStudentFromSchool
+     * return type - Integer
+     */
+    public Integer getStudentFromSchool(){
+        return numberOfStudentInSchool;
+    }
+}
