@@ -1,0 +1,19 @@
+@isTest
+public class FitnessTest {
+    @isTest
+    public static void fitnessTest1(){
+        System.assert(Fitness.calculateBMI(35.0,1.6).setScale(2) == 13.67, 'test failed');    }
+    
+    @isTest
+    public static void fitnessTest2(){
+        System.assert(Fitness.calculatePace(3,0).setScale(2) == 0, 'test failed');
+    }
+        @isTest
+    public static void fitnessTest3(){
+        System.assert(Fitness.calculatePace(3,60).setScale(2) == 0.05, 'test failed');
+    }
+    @isTest
+    public static void fitnessTest4(){
+        System.assert(Fitness.calculatePace(3,0).setScale(2) == 0, 'test failed');
+    }
+}
