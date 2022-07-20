@@ -1,0 +1,22 @@
+public class AccountController {     
+    public static void updateAvgCaseResolutionDays(List<Id> accountIds){
+        Map<Id, Integer> accountTotalCaseMap = new Map<Id, Integer>();
+        Map<Id, Integer> accountTotalCaseDaysMap = new Map<Id, Integer>();
+        for(Case caseObj : [SELECT Id, CreatedDate, ClosedDate, AccountId FROM Case WHERE IsClosed = true AND AccountId IN: accountIds]){
+            if(accountTotalCaseMap.containsKey(caseObj.AccountId)){
+                accountTotalCaseMap.put(caseObj.AccountId,accountTotalCaseMap.get(caseObj.AccountId)+1);
+                accountTotalCaseDaysMap.put(caseObj.AccountId, accountTotalCaseDaysMap.get(caseObj.AccountId) + caseObj.CreatedDate.date().daysBetween(caseObj.ClosedDate.date()));
+            }
+            else{
+                accountTotalCaseMap.put(caseObj.AccountId,1);
+                accountTotalCaseDaysMap.put(caseObj.AccountId, caseObj.CreatedDate.date().daysBetween(caseObj.ClosedDate.date()));
+            }
+        }
+        List<Account> accountsToUpdate = new List<Account>();
+        for(Id acId : accountTotalCaseMap.keySet()){
+            Decimal resolutionDays = accountTotalCaseDaysMap.get(acId) / accountTotalCaseMap.get(acId);
+            accountsToUpdate.add(new Account(Id = acId , Avg_Case_Resolution_Days__c = resolutionDays));
+        }
+        update accountsToUpdate;
+    }
+}
