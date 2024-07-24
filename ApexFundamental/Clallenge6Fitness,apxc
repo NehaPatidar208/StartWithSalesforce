@@ -1,8 +1,0 @@
-public class Fitness {
-    public Decimal calculateBMI(Decimal weight, Decimal height){
-        return (weight/(height * height));
-    }
-    public Decimal calculatePace(Decimal distance, Decimal timeTaken){
-        return (distance / timeTaken);
-    }
-}
